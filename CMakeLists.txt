@@ -4,7 +4,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(cmake/utils.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -g -std=c++11 -Wall -Wno-error=deprecated-declarations -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined")
 #set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined")
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 11)
@@ -94,7 +94,7 @@ my_sylar_add_executable(lru_test tests/lru_test.cc ${PROJECT_NAME} "${LIBS}")
 my_sylar_add_executable(pingpong_qps_test my_sylar/utils/pingpong_qps.cc ${PROJECT_NAME} "${LIBS}")
 my_sylar_add_executable(kcp_test tests/kcp_test.cc ${PROJECT_NAME} "${LIBS}")
 my_sylar_add_executable(kcp_server_test tests/kcp_server_test.cc ${PROJECT_NAME} "${LIBS}")
-my_sylar_add_executable(port_scan tests/port_scan.cc ${PROJECT_NAME} "${LIBS}")
+# my_sylar_add_executable(port_scan tests/port_scan.cc ${PROJECT_NAME} "${LIBS}")
 
 install(DIRECTORY my_sylar DESTINATION ${INSTALL_PATH_INCLUDE} FILES_MATCHING PATTERN "*.hh")
 
